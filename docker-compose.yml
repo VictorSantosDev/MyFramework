@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  app_framework:
+    container_name: app_framework
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    tty: true
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - app-network
+
+  webservice:
+    container_name: webservice
+    image: nginx:alpine
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3535:80"
+    volumes:
+      - ./:/var/www
+      - .docker/nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on:
+      - app_framework
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge

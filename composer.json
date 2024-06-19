@@ -1,0 +1,18 @@
+{
+    "require": {
+        "chrome-php/chrome": "^1.11",
+        "php": ">= 8.2"
+    },
+    "authors": [
+        {
+            "name": "Victor emanuel almeida santos",
+            "email": "victor_santos1162@hotmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "Framework\\": "vendor/Framework"
+        }
+    }
+}
