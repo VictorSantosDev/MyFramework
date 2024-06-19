@@ -11,7 +11,7 @@ class Api extends Routing
 {
     public function handle(): \App\Router\Api
     {
-        Route::action(method: Method::GET, path: '/', controller: [ExampleControllers::class, 'actionTest']);
+        Route::action(method: Method::GET, path: '/', controller: [ExampleControllers::class, 'actionExample']);
 
         return $this;
     }
